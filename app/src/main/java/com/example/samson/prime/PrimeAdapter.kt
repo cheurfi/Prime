@@ -8,16 +8,16 @@ import android.view.ViewGroup
 import com.example.samson.prime.R
 import kotlinx.android.synthetic.main.prime_item.view.*
 
-class PrimeAdapter(private val numbers: IntArray, private val context: Context) : RecyclerView.Adapter<PrimeAdapter.ViewHolder>() {
+class PrimeAdapter(private val primeNumbers: ArrayList<Int>, private val context: Context) : RecyclerView.Adapter<PrimeAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
             ViewHolder(LayoutInflater.from(context).inflate(R.layout.prime_item, parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.prime.text = (numbers[position]).toString()
+        holder.prime.text = (primeNumbers[position]).toString()
     }
 
-    override fun getItemCount() = numbers.size
+    override fun getItemCount() = primeNumbers.size
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val prime = view.prime
